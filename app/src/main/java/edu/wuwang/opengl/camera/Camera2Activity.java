@@ -36,9 +36,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.util.Size;
 import android.view.Surface;
 import android.view.SurfaceHolder;
@@ -55,6 +52,10 @@ import edu.wuwang.opengl.filter.ZipPkmAnimationFilter;
 import edu.wuwang.opengl.utils.PermissionUtils;
 
 import static android.hardware.camera2.CameraDevice.TEMPLATE_PREVIEW;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 
 /**
@@ -138,10 +139,8 @@ public class Camera2Activity extends BaseActivity implements FrameCallback {
     }
 
     public void onClick(View view){
-        switch (view.getId()){
-            case R.id.mShutter:
-                mController.takePhoto();
-                break;
+        if (view.getId() == R.id.mShutter) {
+            mController.takePhoto();
         }
     }
 
